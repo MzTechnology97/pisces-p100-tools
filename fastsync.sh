@@ -1,8 +1,8 @@
 #!/bin/bash
 
 minername=$(docker ps -a|grep miner|awk -F" " '{print $NF}')
-newheight=`1347965`
-echo "Snapshot height is $newheight";
+newheight=1347965
+echo "Snapshot height is $";
 echo "Stopping the miner... "
 sudo docker stop $minername
 echo "Clearing blockchain data... "
