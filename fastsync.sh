@@ -1,7 +1,7 @@
 #!/bin/bash
 
 minername=$(docker ps -a|grep miner|awk -F" " '{print $NF}')
-newheight=`curl --silent https://helium-snapshots.nebra.com/latest.json|awk '{print $2}'| rev | cut -c2- | rev`
+newheight=`curl --silent https://helium-snapshots.nebra.com/latest.json|awk '{print $3}'| rev | cut -c2- | rev`
 echo "Snapshot height is $newheight";
 
 echo "Stopping the miner... "
