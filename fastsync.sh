@@ -21,7 +21,7 @@ sudo docker start $minername
 filepath=/tmp/snap-$newheight;
 if [ ! -f "$filepath" ]; then
   echo "Downloading latest snapshot from SenseCAP"
-  wget -q --show-progress https://snapshots-wtf.sensecapmx.cloud/snap-$newheight -O /tmp/snap-$newheight
+  wget -q --show-progress  https://helium-snapshots.nebra.com/snap-$newheight -O /tmp/snap-$newheight
 else
   modified=`stat -c %Y $filepath`
   now=`date +%s`
