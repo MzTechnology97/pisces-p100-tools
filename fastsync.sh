@@ -13,7 +13,7 @@ sudo docker start $minername
 filepath=/tmp/snap-$newheight;
 if [ ! -f "$filepath" ]; then
   echo "Downloading latest snapshot from Nebra"
-  wget -q --show-progress https://helium-snapshots.nebra.com/snap-1347965 -O /tmp/snap-$newheight
+  wget -q --show-progress https://helium-snapshots.nebra.com/snap-1347965 -O /tmp/snap-1347965
 else
   modified=`stat -c %Y $filepath`
   now=`date +%s`
