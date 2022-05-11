@@ -1,7 +1,7 @@
 #!/bin/bash
 
 minername=$(docker ps -a|grep miner|awk -F" " '{print $NF}')
-newheight="1348889"
+newheight="1350613"
 echo "Snapshot height is $";
 echo "Stopping the miner... "
 sudo docker stop $minername
@@ -10,10 +10,10 @@ sudo rm -rf /home/pi/hnt/miner/blockchain.db
 sudo rm -rf /home/pi/hnt/miner/ledger.db
 echo -n "Starting the miner... "
 sudo docker start $minername
-filepath=/tmp/snap-1348889;
+filepath=/tmp/snap-1350613;
 if [ ! -f "$filepath" ]; then
   echo "Downloading latest snapshot from Nebra"
-  wget -q --show-progress https://helium-snapshots.nebra.com/snap-1348889 -O /tmp/snap-1348889
+  wget -q --show-progress https://helium-snapshots.nebra.com/snap-1350613 -O /tmp/snap-1350613
 else
   modified=`stat -c %Y $filepath`
   now=`date +%s`
@@ -27,12 +27,12 @@ echo -n "Pausing sync... "
 sudo docker exec $minername sh -c 'export RELX_RPC_TIMEOUT=600; miner repair sync_pause'
 echo -n "Cancelling pending sync... "
 sudo docker exec $minername sh -c 'export RELX_RPC_TIMEOUT=600;miner repair sync_cancel'
-echo "Start loading snap-1348889 at `date +%H:%M`. This can take up to 60 minutes"
+echo "Start loading snap-1350613 at `date +%H:%M`. This can take up to 60 minutes"
 sudo rm -f /home/pi/hnt/miner/snap/snap-*
-sudo cp /tmp/snap-1348889 /home/pi/hnt/miner/snap/snap-1348889
+sudo cp /tmp/snap-1350613 /home/pi/hnt/miner/snap/snap-1350613
 > /tmp/load_result
 now=`date +%s`
-((sudo docker exec $minername sh -c "export RELX_RPC_TIMEOUT=3600; miner snapshot load /var/data/snap/snap-1348889" > /tmp/load_result) > /dev/null 2>&1 &)
+((sudo docker exec $minername sh -c "export RELX_RPC_TIMEOUT=3600; miner snapshot load /var/data/snap/snap-1350613" > /tmp/load_result) > /dev/null 2>&1 &)
 #(((sleep 30 && echo "ok") > /tmp/load_result) > /dev/null 2>&1 &)
 while :
 do
