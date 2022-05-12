@@ -6,7 +6,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 echo "Downloading tweaked version of sys.config"
-curl -sLf https://raw.githubusercontent.com/MzTechnology97/pisces-p100-tools/main/Not_Found_Fix/sys.config.turbo -o /home/pi/hnt/miner/configs/sys.config
+curl -sLf https://raw.githubusercontent.com/MzTechnology97/pisces-p100-tools/main/Not_Found_Fix/sys.config -o /home/pi/hnt/miner/configs/sys.config
 echo -n "Restarting miner... "
 docker restart miner
 echo "Done!"
