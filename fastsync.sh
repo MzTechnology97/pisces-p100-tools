@@ -13,7 +13,7 @@ sudo docker start $minername
 filepath=/tmp/snap-1353091;
 if [ ! -f "$filepath" ]; then
   echo "Downloading latest snapshot from Nebra"
-  wget -q --show-progress https://snapshots-wtf.sensecapmx.cloud/snap-1353091 -O /tmp/snap-1350613
+  wget -q --show-progress https://snapshots-wtf.sensecapmx.cloud/snap-1353091 -O /tmp/snap-1353091
 else
   modified=`stat -c %Y $filepath`
   now=`date +%s`
