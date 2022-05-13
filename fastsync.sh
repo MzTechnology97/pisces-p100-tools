@@ -29,7 +29,7 @@ echo -n "Cancelling pending sync... "
 sudo docker exec $minername sh -c 'export RELX_RPC_TIMEOUT=600;miner repair sync_cancel'
 echo "Start loading snap-1350613 at `date +%H:%M`. This can take up to 60 minutes"
 sudo rm -f /home/pi/hnt/miner/snap/snap-*
-sudo cp /tmp/snap-1350613 /home/pi/hnt/miner/snap/snap-1353091
+sudo cp /tmp/snap-1353091 /home/pi/hnt/miner/snap/snap-1353091
 > /tmp/load_result
 now=`date +%s`
 ((sudo docker exec $minername sh -c "export RELX_RPC_TIMEOUT=3600; miner snapshot load /var/data/snap/snap-1353091" > /tmp/load_result) > /dev/null 2>&1 &)
